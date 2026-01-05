@@ -13,6 +13,7 @@ type Props = {
   subtitle?: string;
   timeframe?: string;
   bullets?: string[];
+  collapsibleOnMobile?: boolean;
 };
 
 export default function ExperienceItem({
