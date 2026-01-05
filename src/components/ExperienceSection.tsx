@@ -22,7 +22,7 @@ export default function ExperienceSection() {
             subtitle={e.subtitle}
             timeframe={e.timeframe}
             bullets={e.bullets}
-            collapsibleOnMobile={false} // show education fully by default
+            collapsibleOnMobile={false}
           />
         ))}
 
