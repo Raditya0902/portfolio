@@ -5,7 +5,7 @@ import {
   CardHeader,
   CardContent,
   CardTitle,
-} from "@/src/components/ui/card";
+} from "@/src/components/ui/card"; // adjust path to your card import if needed
 
 type Props = {
   id?: string;
@@ -13,6 +13,7 @@ type Props = {
   subtitle?: string;
   timeframe?: string;
   bullets?: string[];
+  /** When true, show a mobile "details" collapsible UI; otherwise show bullets always. */
   collapsibleOnMobile?: boolean;
 };
 
@@ -22,6 +23,7 @@ export default function ExperienceItem({
   subtitle,
   timeframe,
   bullets = [],
+  collapsibleOnMobile = true,
 }: Props) {
   return (
     <article id={id} className="w-full">
@@ -42,28 +44,38 @@ export default function ExperienceItem({
         </CardHeader>
 
         <CardContent>
-          {/* Mobile: collapsible details */}
-          <div className="md:hidden">
-            <details>
-              <summary className="cursor-pointer text-sm text-slate-600 underline">
-                Details
-              </summary>
-              <ul className="mt-2 list-disc pl-5 text-slate-600 space-y-2 text-sm">
-                {bullets.map((b, i) => (
-                  <li key={i}>{b}</li>
-                ))}
-              </ul>
-            </details>
-          </div>
+          {collapsibleOnMobile ? (
+            <>
+              {/* Mobile: show details/collapsible */}
+              <div className="md:hidden">
+                <details>
+                  <summary className="cursor-pointer text-sm text-slate-600 underline">
+                    Details
+                  </summary>
+                  <ul className="mt-2 list-disc pl-5 text-slate-600 space-y-2 text-sm">
+                    {bullets.map((b, i) => (
+                      <li key={i}>{b}</li>
+                    ))}
+                  </ul>
+                </details>
+              </div>
 
-          {/* Desktop / Tablet: show bullets directly */}
-          <div className="hidden md:block">
+              {/* Desktop / Tablet: show bullets */}
+              <div className="hidden md:block">
+                <ul className="mt-1 list-disc pl-5 text-slate-600 space-y-2 text-sm">
+                  {bullets.map((b, i) => (
+                    <li key={i}>{b}</li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          ) : (
             <ul className="mt-1 list-disc pl-5 text-slate-600 space-y-2 text-sm">
               {bullets.map((b, i) => (
                 <li key={i}>{b}</li>
               ))}
             </ul>
-          </div>
+          )}
         </CardContent>
       </Card>
     </article>
