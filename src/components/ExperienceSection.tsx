@@ -1,7 +1,7 @@
 // src/components/ExperienceSection.tsx
 import React from "react";
 import ExperienceItem from "./ExperienceItem";
-import { experiences } from "@/src/data/experience"; // adjust path to data file if needed
+import { experiences } from "@/src/data/experience";
 
 export default function ExperienceSection() {
   // Optionally split education vs experience
