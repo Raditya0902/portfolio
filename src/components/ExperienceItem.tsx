@@ -13,7 +13,6 @@ type Props = {
   subtitle?: string;
   timeframe?: string;
   bullets?: string[];
-  /** When true, show a mobile "details" collapsible UI; otherwise show bullets always. */
   collapsibleOnMobile?: boolean;
 };
 
