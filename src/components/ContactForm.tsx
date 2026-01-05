@@ -126,20 +126,6 @@ export default function ContactForm() {
         <Button type="submit" disabled={isSending} className="w-full md:w-auto">
           {isSending ? "Sending…" : "Send"}
         </Button>
-
-        {/* Replace the onClick to open your calendar / scheduling link if you have one */}
-        <Button
-          type="button"
-          variant="outline"
-          disabled={isSending}
-          className="w-full md:w-auto"
-          onClick={() => {
-            // Example: open Google Calendar scheduling link
-            // window.open("https://cal.com/your-link", "_blank");
-          }}
-        >
-          Schedule a chat
-        </Button>
       </div>
 
       {status && (
